@@ -7,6 +7,6 @@ COPY . /app/.
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 10000
 RUN npm run build
 RUN npm run start
