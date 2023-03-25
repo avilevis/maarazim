@@ -1,3 +1,6 @@
+import React from "react";
+import Image from "next/image";
+
 import styles from './box-card.module.css'
 
 interface BoxCardProps {
@@ -11,7 +14,7 @@ function BoxCard(props: BoxCardProps) {
     return (
         <div className={styles.card}>
             <div className={styles.image_container}>
-                <img className={styles.card_image} alt='image' src={props.image}/>
+                <Image className={styles.card_image} alt='image' src={props.image}/>
             </div>
             <div className={styles.card_body}>
                 <h4 className={styles.title}>{props.title}</h4>

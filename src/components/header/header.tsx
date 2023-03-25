@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import BadgeGroup from "../badge/badge-group";
 import WhatsAppIcon from "../icons/whats-app";
 import FacebookIcon from "../icons/facebook";
@@ -11,7 +12,7 @@ function Header() {
     return (
         <div className={styles.header}>
             <div className={styles.logo_container}>
-                <img className={styles.logo} alt='logo' src='/logo.svg'/>
+                <Image className={styles.logo} alt='logo' src='/logo.svg'/>
             </div>
             <BadgeGroup list={navList}/>
             <div className={styles.social_container}>
