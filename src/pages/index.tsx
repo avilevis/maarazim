@@ -5,6 +5,7 @@ import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '@/components/header/header'
 import BoxList from '@/components/box-list/box-list'
+import {CartContextProvider} from "../context/context";
 
 const inter = Inter({subsets: ['latin']})
 

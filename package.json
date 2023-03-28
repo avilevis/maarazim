@@ -21,6 +21,8 @@
     "react": "18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-whatsapp": "^0.3.0",
     "sass": "^1.60.0",
     "sharp": "^0.32.0",
     "typescript": "5.0.2"
