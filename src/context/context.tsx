@@ -1,5 +1,7 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 
+const whatsAppUrl = `${process.env['whatsAppSendUrl']}&phone=${process.env['whatsAppPn']}&text=`
+const facebookUrl = `${process.env['facebookUrl']}${process.env['facebookPageId']}`
 const items = [
     {
         id: "b1",
@@ -24,6 +26,8 @@ const items = [
     }
 ]
 const AppContext = createContext({
+    whatsAppUrl: '',
+    facebookUrl: '',
     items: [],
     cart: {},
     countItems: 0,
@@ -50,6 +54,8 @@ export function AppWrapper({children}) {
 
     return (
         <AppContext.Provider value={{
+            whatsAppUrl,
+            facebookUrl,
             items,
             cart,
             countItems,

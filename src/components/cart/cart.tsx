@@ -25,9 +25,8 @@ function Cart() {
     };
     const sendHandle = () => {
         const message = createWhatsUpMessage(cartWithItems);
-        const url = `whatsapp://send?phone=${972507551896}&text=${message}&link=&app_absent=0`;
 
-        window.open(url);
+        window.open(`${ctx.whatsAppUrl}${message}`);
         handleClose()
     }
 
