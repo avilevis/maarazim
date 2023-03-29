@@ -14,7 +14,7 @@ function createWhatsUpMessage(items) {
 function Cart() {
     const ctx = useAppContext()
     const [show, setShow] = useState(false);
-    const cartWithItems = ctx.items.filter(item => ctx.cart[item.id])
+    const cartWithItems = ctx.itemList.filter(item => ctx.cart[item.id])
         .map(item => ({...item, orderCount: ctx.cart[item.id]}))
 
     const handleClose = () => setShow(false);

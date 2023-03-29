@@ -1,8 +1,7 @@
-import React from "react";
-import BoxCard from '../box-card/box-card'
-import styles from './box-list.module.css'
+import type {NextApiRequest, NextApiResponse} from 'next'
+import {ItemInterface} from '@/intefaces/item.inteface'
 
-const boxes = [
+const data = [
     {
         id: "b1",
         image: '/box1.jpg',
@@ -26,12 +25,9 @@ const boxes = [
     }
 ]
 
-function BoxList() {
-    return (
-        <div className={styles.box_list}>
-            {boxes.map((boxCard, index) => <BoxCard key={`boxcard${index}`} {...boxCard}/>)}
-        </div>
-    )
+export default function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<ItemInterface[]>
+) {
+    res.status(200).json(data)
 }
-
-export default BoxList;

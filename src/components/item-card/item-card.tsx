@@ -1,18 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Counter from "@/components/counter/counter";
+import {ItemInterface} from "@/intefaces/item.inteface";
 
-import styles from './box-card.module.scss'
+import styles from './item-card.module.scss'
 
-interface BoxCardProps {
-    id: string,
-    image: string,
-    title: string,
-    sub_title: string,
-    text: string
-}
 
-function BoxCard(props: BoxCardProps) {
+function ItemCard(props: ItemInterface) {
     return (
         <div className={styles.card}>
             <div className={styles.image_container}>
@@ -28,4 +22,4 @@ function BoxCard(props: BoxCardProps) {
     )
 }
 
-export default BoxCard;
+export default ItemCard;
