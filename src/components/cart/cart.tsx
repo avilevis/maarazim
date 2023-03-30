@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {GrCart} from "react-icons/gr";
 import {useAppContext} from "@/context/context";
 import {Button} from "react-bootstrap";
@@ -38,17 +38,17 @@ function Cart() {
 
             <Modal show={ctx.cartOpenStatus} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>cart</Modal.Title>
+                    <Modal.Title>עגלת הזמנות</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <CartList/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
+                    <Button variant="secondary" size={'sm'} onClick={handleClose}>
+                        סגור
                     </Button>
-                    <Button variant="primary" onClick={sendHandle}>
-                        Send
+                    <Button variant="success" size={'sm'} onClick={sendHandle}>
+                        שלח
                     </Button>
                 </Modal.Footer>
             </Modal>

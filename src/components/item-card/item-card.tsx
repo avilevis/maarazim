@@ -1,6 +1,5 @@
 import styles from './item-card.module.scss';
 import React from "react";
-import Image from "next/image";
 import {ItemInterface} from "@/intefaces/item.inteface";
 import {Button} from "react-bootstrap";
 import {useAppContext} from "@/context/context";
@@ -19,7 +18,7 @@ function ItemCard(props: ItemInterface) {
     return (
         <div className={styles.card}>
             <div className={styles.image_container}>
-                <Image className={styles.card_image} alt='image' src={props.image} width={200} height={200}/>
+                <img className={styles.card_image} alt='image' src={props.image} />
             </div>
             <div className={styles.card_body}>
                 <h4 className={styles.title}>{props.title}</h4>

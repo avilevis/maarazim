@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from "react";
+import Spinner from 'react-bootstrap/Spinner';
 import ItemCard from '../item-card/item-card'
 import styles from '@/components/item-list/item-list.module.css'
 import {useAppContext} from "@/context/context";
@@ -16,6 +17,18 @@ function ItemList() {
     const ctx = useAppContext()
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
+    const content = () => {
+        if (error) {
+            return (<p>{error}</p>)
+        }
+        if (isLoading) {
+            return (<Spinner animation="grow"/>)
+        }
+
+        return ctx.itemList.map((item, index) => <ItemCard key={`itemcard${index}`} {...item}/>)
+
+
+    }
     const fetchListHandler = useCallback(async () => {
         setIsLoading(true)
         setError(null)
@@ -36,7 +49,7 @@ function ItemList() {
 
     return (
         <div className={styles.box_list}>
-            {ctx.itemList.map((item, index) => <ItemCard key={`itemcard${index}`} {...item}/>)}
+            {content()}
         </div>
     )
 }
