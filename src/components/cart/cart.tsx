@@ -13,14 +13,13 @@ function createWhatsUpMessage(items) {
 
 function Cart() {
     const ctx = useAppContext()
-    const [show, setShow] = useState(false);
     const cartWithItems = ctx.itemList.filter(item => ctx.cart[item.id])
         .map(item => ({...item, orderCount: ctx.cart[item.id]}))
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => ctx.updateCartStatus(false);
     const handleShow = () => {
         if (ctx.countItems > 0) {
-            setShow(true)
+            ctx.updateCartStatus(true)
         }
     };
     const sendHandle = () => {
@@ -37,7 +36,7 @@ function Cart() {
                 <span>({ctx.countItems})</span>
             </Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={ctx.cartOpenStatus} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>cart</Modal.Title>
                 </Modal.Header>

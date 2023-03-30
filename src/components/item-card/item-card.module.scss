@@ -46,8 +46,9 @@
   }
 
   .action {
-    margin: 5px;
-    justify-content: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 10px 10px;
   }
-
 }

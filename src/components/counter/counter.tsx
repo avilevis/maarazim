@@ -16,7 +16,7 @@ function Counter(props: CounterProps) {
         ctx.increaseToCart(props.id)
     }
     const decreaseObj = () => {
-        ctx.decreaseToCart(props.id)
+        ctx.decreaseFromCart(props.id)
     }
 
     return (
