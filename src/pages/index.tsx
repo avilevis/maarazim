@@ -1,9 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Header from '@/components/header/header'
 import BoxList from '@/components/item-list/item-list'
 
 const inter = Inter({subsets: ['latin']})
@@ -18,7 +15,6 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <main className={styles.main}>
-                <Header/>
                 <BoxList/>
             </main>
         </>

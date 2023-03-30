@@ -6,9 +6,9 @@ import FacebookIcon from "../icons/facebook";
 import Cart from "../cart/cart";
 import {useAppContext} from "@/context/context";
 
-import styles from './header.module.css';
+import styles from '@/components/header/header.module.css';
 
-const navList = ['בית', 'עלינו']
+const navList = [{name: 'בית', link: '/'}, {name: 'תנאי שימוש', link: '/policy'}]
 
 function Header() {
     const ctx = useAppContext()

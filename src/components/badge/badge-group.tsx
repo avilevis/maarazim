@@ -1,22 +1,27 @@
 import styles from "./badge_group.module.css";
 import React, {useState} from "react";
 import Badge from "./badge";
+import { useRouter } from 'next/router'
+
+
 
 interface props {
-    list: string[] | []
+    list: { name: string, link: string }[] | []
 }
 
 function BadgeGroup(props: props) {
-    const [value, setValue] = useState('')
+    const router = useRouter()
     const onClickHandler = (newValue: string) => {
-        setValue(newValue)
-        // props.onClick(event);
+        router.push(newValue)
     };
 
     return (
         <nav className={styles.nav}>
-            {props.list.map((nv, index) => <Badge key={`badge${index}`} name={nv} active={value === nv}
-                                                  clickHandle={onClickHandler}/>)}
+            {props.list.map((navObj, index) => (
+                <Badge key={`badge${index}`} name={navObj.name}
+                       active={router.asPath === navObj.link}
+                       link={navObj.link}
+                       clickHandle={onClickHandler}/>))}
         </nav>
     );
 }

@@ -3,6 +3,7 @@ import React from "react";
 
 interface BadgeProps {
     name: string,
+    link: string,
     active: boolean,
     clickHandle: (key: string) => void
 }
@@ -10,7 +11,7 @@ interface BadgeProps {
 function Badge(props: BadgeProps) {
     const onClickHandler = (event: React.MouseEvent) => {
         event.preventDefault();
-        props.clickHandle(props.name);
+        props.clickHandle(props.link);
     };
 
     return (

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
 import ItemCard from '../item-card/item-card'
-import styles from './item-list.module.css'
+import styles from '@/components/item-list/item-list.module.css'
 import {useAppContext} from "@/context/context";
 
 async function fetchReq() {
