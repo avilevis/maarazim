@@ -19,15 +19,15 @@ function Navigation(props: NavProps) {
     const ctx = useAppContext()
 
     return (
-        <Navbar bg="light" expand="sm" fixed={'top'}>
+        <Navbar collapseOnSelect={true} bg="light" expand="sm" fixed={'top'}>
             <Container>
                 <Navbar.Brand href="/">
-                    <Image className={styles.logo} alt='logo' src={props.imageLogo.url} width={props.imageLogo.width}
+                    <Image alt='logo' src={props.imageLogo.url} width={props.imageLogo.width}
                            height={props.imageLogo.height}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav activeKey={router.asPath} as={"ul"} collapseOnSelect={true}>
+                    <Nav activeKey={router.asPath} as={"ul"}>
                         {props.list.map(item => (
                             <Nav.Item key={item.link} as={"li"}>
                                 <Nav.Link href={item.link}>{item.name}</Nav.Link>
