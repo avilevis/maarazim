@@ -6,11 +6,19 @@ import type {AppProps} from 'next/app'
 import {AppWrapper} from "@/context/context";
 import Header from "@/components/header/header";
 
+import {Open_Sans} from 'next/font/google'
+
+const openSans = Open_Sans({
+    weight: ['300', '500', '700', '800'],
+    style: ['normal'],
+    subsets: ['hebrew'],
+})
+
 export default function App({Component, pageProps}: AppProps) {
     return (
         <AppWrapper>
-            <Header/>
-            <Component {...pageProps} />
+            <Header className={openSans.className}/>
+            <Component {...pageProps} className={openSans.className}/>
         </AppWrapper>
     )
 }
