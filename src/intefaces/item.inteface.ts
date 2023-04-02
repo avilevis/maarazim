@@ -3,5 +3,6 @@ export interface ItemInterface {
     image: string,
     title: string,
     sub_title: string,
-    text: string
+    text: string,
+    onImageClick: (object) => void
 }

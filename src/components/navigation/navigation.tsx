@@ -10,7 +10,7 @@ import {useAppContext} from "@/context/context";
 
 interface NavProps {
     list: { name: string, link: string }[] | [],
-    imageLogo: string,
+    imageLogo: { url: string, width: number, height: number },
     children: any
 }
 
@@ -22,7 +22,8 @@ function Navigation(props: NavProps) {
         <Navbar bg="light" expand="sm" fixed={'top'}>
             <Container>
                 <Navbar.Brand href="/">
-                    <Image className={styles.logo} alt='logo' src='/logo.svg' width={100} height={50}/>
+                    <Image className={styles.logo} alt='logo' src={props.imageLogo.url} width={props.imageLogo.width}
+                           height={props.imageLogo.height}/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">

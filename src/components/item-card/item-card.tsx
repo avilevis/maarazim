@@ -3,6 +3,7 @@ import React from "react";
 import {ItemInterface} from "@/intefaces/item.inteface";
 import {Button} from "react-bootstrap";
 import {useAppContext} from "@/context/context";
+import {AiOutlineZoomIn} from 'react-icons/ai'
 
 function ItemCard(props: ItemInterface) {
     const ctx = useAppContext()
@@ -15,10 +16,17 @@ function ItemCard(props: ItemInterface) {
         ctx.increaseToCart(props.id)
     }
 
+    const imageClickHandle = () => {
+        props.onImageClick({image: props.image, title: props.title})
+    }
+
     return (
         <div className={styles.card}>
             <div className={styles.image_container}>
-                <img className={styles.card_image} alt='image' src={props.image} />
+                <img className={styles.card_image} alt='image' src={props.image}/>
+                <div className={styles.zoom} onClick={imageClickHandle}>
+                    [<AiOutlineZoomIn/>]
+                </div>
             </div>
             <div className={styles.card_body}>
                 <h4 className={styles.title}>{props.title}</h4>
