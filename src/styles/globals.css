@@ -29,11 +29,12 @@ body {
 
 .btn-success {
     background-color: var(--border-color) !important;
-
+    border-color: var(--border-color) !important;
 }
 
 .btn-info {
     background-color: var(--background-color2) !important;
+    border-color: var(--border-color) !important;
 }
 
 .btn-info:hover {
@@ -42,7 +43,6 @@ body {
 
 .btn {
     opacity: 0.9;
-    border-color: var(--border-color) !important;
 }
 
 .btn:hover {

@@ -4,15 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import ItemCard from '../item-card/item-card';
 import Modal from 'react-bootstrap/Modal';
 import {useAppContext} from "@/context/context";
-
-async function fetchReq() {
-    const response = await fetch('http://localhost:3000/api/list')
-    if (!response.ok) {
-        throw new Error('Something went wrong!')
-    }
-
-    return await response.json()
-}
+import {fetchReq} from '@/utils/request'
 
 function ItemList() {
     const ctx = useAppContext()
