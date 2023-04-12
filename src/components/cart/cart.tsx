@@ -1,11 +1,10 @@
+import styles from './cart.module.scss'
 import React from "react";
 import {GrCart} from "react-icons/gr";
 import {useAppContext} from "@/context/context";
 import {Button} from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import CartList from "@/components/cart/cart-list";
-
-import styles from './cart.module.scss'
 
 function createWhatsUpMessage(items) {
     return items.map(item => `${item.orderCount} x *${item.id}* - ${item.title}‏‏‏`).join("%0a")
