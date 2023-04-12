@@ -31,7 +31,7 @@ function ItemCard(props: ItemInterface) {
             <div className={styles.card_body}>
                 <h4 className={styles.title}>{props.title}</h4>
                 <h5 className={styles.sub_title}>{props.sub_title}</h5>
-                <div className={styles.text}>{props.text}</div>
+                <div className={styles.info}>{props.info}</div>
             </div>
             <div className={styles.action}>
                 <Button variant='success' size={'sm'} className={styles.button_icon} onClick={buyNowHandle}>הזמן

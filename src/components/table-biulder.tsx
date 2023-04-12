@@ -11,14 +11,15 @@ interface HeaderObj {
 interface TableBuilderProps {
     headers: HeaderObj[],
     itemList: object[],
-    uniqueChildren: (key: string, item: { [key: string]: any }) => void,
+    tableSlots?: (key: string, item: { [key: string]: any }) => void,
     responsive?: boolean
-    className?: string
+    className?: string,
+    children?: any
 }
 
 function TableBuilder(props: TableBuilderProps) {
     return (
-        <Table responsive={props.responsive ?? false} className={props.className}>
+        <Table responsive={props.responsive ?? false} className={props.className} style={{tableLayout: 'fixed'}}>
             <thead>
             <tr>
                 {props.headers?.map((header, index) => (
@@ -40,7 +41,7 @@ function TableBuilder(props: TableBuilderProps) {
                             maxWidth: header.maxWidth ?? 'auto',
                             overflow: 'hidden'
                         }}>
-                            {props.uniqueChildren ? props.uniqueChildren(header.key, item) : item[header.key]}
+                            {props.tableSlots ? props.tableSlots(header.key, item) : item[header.key]}
                         </td>
                     ))}
                 </tr>

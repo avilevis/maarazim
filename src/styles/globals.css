@@ -19,12 +19,15 @@
 
 html,
 body {
+    position: relative;
     max-width: 100vw;
     overflow-x: hidden;
     margin-top: 100px;
-    background-color: white;
+    background-color: #dee2e6 !important;
     direction: rtl;
     color: var(--text-color) !important;
+    /*background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("/gifts.jpg");*/
+    /*background-size: 20%;*/
 }
 
 .btn-success {

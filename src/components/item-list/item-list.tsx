@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import ItemCard from '../item-card/item-card';
 import Modal from 'react-bootstrap/Modal';
 import {useAppContext} from "@/context/context";
-import {fetchReq} from '@/utils/request'
+import {getList} from '@/utils/request'
 
 function ItemList() {
     const ctx = useAppContext()
@@ -27,7 +27,7 @@ function ItemList() {
         setError(null)
 
         try {
-            const data = await fetchReq()
+            const data = await getList()
 
             ctx.updateItemList(data)
         } catch (error) {

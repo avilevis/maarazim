@@ -1,4 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react';
+import * as translates from './heb.json'
 
 const whatsAppUrl = `${process.env['whatsAppSendUrl']}&phone=${process.env['whatsAppPn']}&text=`
 const facebookUrl = `${process.env['facebookUrl']}${process.env['facebookPageId']}`
@@ -18,7 +19,8 @@ const AppContext = createContext({
     },
     cartOpenStatus: false,
     updateCartStatus: (open: boolean) => {
-    }
+    },
+    translates: {}
 });
 
 export function AppWrapper({children}) {
@@ -59,7 +61,8 @@ export function AppWrapper({children}) {
             decreaseFromCart,
             clearCart,
             cartOpenStatus,
-            updateCartStatus
+            updateCartStatus,
+            translates
         }}>
             {children}
         </AppContext.Provider>

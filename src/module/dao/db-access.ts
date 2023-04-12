@@ -1,0 +1,37 @@
+import {items} from '../db/local-db'
+import {NotExist, AlreadyExist} from "@/module/dao/errors";
+
+async function findItemById(id: string) {
+    return items.findOne({id: id})
+}
+
+export async function findAll() {
+    return items.find()
+}
+
+export function addItem(id: string, item: object) {
+    return findItemById(id).then((doc) => {
+        if (doc) {
+            throw new AlreadyExist('item with this id already exist.')
+        }
+        return items.create({...item, id: id}).save();
+    })
+}
+
+export function updateItem(id: string, item: object) {
+    return findItemById(id).then((doc) => {
+        if (!doc) {
+            throw new NotExist(`item with id ${id} do not exist.`)
+        }
+        return items.update({id: id}, {...item}).save();
+    })
+}
+
+export function removeItem(id: string) {
+    return findItemById(id).then((doc) => {
+        if (!doc) {
+            throw new NotExist(`item with id ${id} do not exist.`)
+        }
+        return items.remove({id: id});
+    })
+}

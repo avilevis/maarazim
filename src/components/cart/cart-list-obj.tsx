@@ -9,7 +9,7 @@ interface CartListObjProps {
     image: string,
     title: string,
     sub_title: string,
-    text: string
+    info: string
 }
 
 function CartListObj(props: CartListObjProps) {

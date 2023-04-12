@@ -1,8 +1,8 @@
-export interface ItemInterface {
-    id: string
+export class ItemDto {
+    id?: string
+    image: string
     title: string
     sub_title: string
-    image: string
     info: string
     enable: boolean
 }
