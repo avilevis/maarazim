@@ -43,10 +43,10 @@ function Cart() {
                     <CartList/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" size={'sm'} onClick={handleClose}>
+                    <Button variant="outline-secondary" size={'sm'} onClick={handleClose}>
                         סגור
                     </Button>
-                    <Button variant="success" size={'sm'} onClick={sendHandle}>
+                    <Button variant="primary" size={'sm'} onClick={sendHandle}>
                         שלח
                     </Button>
                 </Modal.Footer>

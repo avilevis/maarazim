@@ -2,12 +2,8 @@
     --max-width: 1100px;
     --border-radius: 12px;
 
-    --text-color: #60574B;
-    --background-color4: #eae9e5;
-    --border-color: #03754F;
-    --background-color1: #03754F;
-    --background-color2: #FFFFFF;
-    --background-color3: #E1F4EE;
+    --text-color: #000;
+    --bg-color: rgba(21, 76, 121, 0.8);
 }
 
 * {
@@ -30,28 +26,24 @@ body {
     /*background-size: 20%;*/
 }
 
-.btn-success {
-    background-color: var(--border-color) !important;
-    border-color: var(--border-color) !important;
-}
-
-.btn-info {
-    background-color: var(--background-color2) !important;
-    border-color: var(--border-color) !important;
-}
-
-.btn-info:hover {
-    background-color: var(--background-color3) !important;
-}
-
-.btn {
-    opacity: 0.9;
-}
-
-.btn:hover {
-    opacity: 1;
-}
-
 .btn-close {
     margin-left: 0 !important;
+}
+
+.btn-primary {
+    --bs-btn-bg: rgb(300, 135, 65) !important;
+    --bs-btn-border-color: rgb(300, 135, 65) !important;
+    --bs-btn-hover-bg: rgb(300, 105, 65) !important;
+    --bs-btn-hover-border-color: rgb(300, 105, 65) !important;
+    --bs-btn-active-bg: rgb(300, 135, 65) !important;
+    --bs-btn-active-border-color: rgb(300, 135, 65) !important;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: rgb(300, 135, 65) !important;
+    --bs-btn-border-color: rgb(300, 135, 65) !important;
+    --bs-btn-hover-bg: rgb(300, 105, 65) !important;
+    --bs-btn-hover-border-color: rgb(300, 105, 65) !important;
+    --bs-btn-active-bg: rgb(300, 135, 65) !important;
+    --bs-btn-active-border-color: rgb(300, 135, 65) !important;
 }

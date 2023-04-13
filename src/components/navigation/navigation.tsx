@@ -19,7 +19,7 @@ function Navigation(props: NavProps) {
     const ctx = useAppContext()
 
     return (
-        <Navbar collapseOnSelect={true} bg="light" expand="sm" fixed={'top'}>
+        <Navbar collapseOnSelect={true} className={styles.nav_container} variant="dark" expand="sm" fixed={'top'}>
             <Container>
                 <Navbar.Brand href="/">
                     <Image alt='logo' src={props.imageLogo.url} width={props.imageLogo.width}

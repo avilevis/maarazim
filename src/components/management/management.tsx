@@ -26,7 +26,7 @@ function Management(): JSX.Element {
     const [itemList, dispatchItemList] = useReducer(itemListReducer);
     const fetchListHandler = useCallback(async () => {
         try {
-            const data = await getList()
+            const data = await getList({'x-content-manager': 'all'})
 
             dispatchItemList({type: "UPDATE_LIST", value: data})
         } catch (error) {

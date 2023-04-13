@@ -1,28 +1,28 @@
 .cart_container {
   font-size: 16px;
   direction: ltr;
-  color: var(--text-color);
+  color: var(--bs-light);
   border: none;
   transition: all 0.3s ease-in-out;
 
   .icon {
-    fill: var(--text-color);
     font-size: 22px;
 
     > path {
-      stroke: var(--text-color);
+      stroke: var(--bs-light);
     }
   }
 }
 
 .cart_container:hover {
   transform: scale(1.3, 1.3);
+  color: var(--bs-light);
 }
 
 @media (max-width: 600px) {
   .cart_container {
     position: absolute;
     left: 70px;
-    top:17px;
+    top: 17px;
   }
 }

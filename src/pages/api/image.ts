@@ -1,5 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import nextConnect from 'next-connect';
+import {onError, onNoMatch} from "@/module/error-handler";
 import multer from 'multer';
 
 const upload = multer({
@@ -9,20 +10,12 @@ const upload = multer({
     }),
 });
 
-const apiRoute = nextConnect({
-    onError(error, req: NextApiRequest, res: NextApiResponse) {
-        res.status(501).json({error: `Sorry something Happened! ${error.message}`});
-    },
-    onNoMatch(req, res) {
-        res.status(405).json({error: `Method '${req.method}' Not Allowed`});
-    },
-});
-
-apiRoute.use(upload.single('photo'));
-apiRoute.post((req, res) => {
-    const {file} = req
-    res.status(200).json({data: 'success', filePath: file.path});
-});
+const apiRoute = nextConnect({onError, onNoMatch})
+    .use(upload.single('photo'))
+    .post((req: NextApiRequest, res: NextApiResponse) => {
+        const {file} = req
+        res.status(200).json({data: 'success', filePath: file.path});
+    });
 
 export default apiRoute;
 

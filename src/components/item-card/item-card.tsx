@@ -34,9 +34,9 @@ function ItemCard(props: ItemInterface) {
                 <div className={styles.info}>{props.info}</div>
             </div>
             <div className={styles.action}>
-                <Button variant='success' size={'sm'} className={styles.button_icon} onClick={buyNowHandle}>הזמן
+                <Button variant='primary' size={'sm'} className={styles.button_icon} onClick={buyNowHandle}>הזמן
                     עכשיו</Button>
-                <Button variant='info' size={'sm'} className={styles.button_icon} onClick={addToCartHandle}>הוסף
+                <Button variant='outline-primary' size={'sm'} className={styles.button_icon} onClick={addToCartHandle}>הוסף
                     לעגלה</Button>
             </div>
         </div>

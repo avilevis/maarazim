@@ -5,8 +5,9 @@ async function findItemById(id: string) {
     return items.findOne({id: id})
 }
 
-export async function findAll() {
-    return items.find()
+export async function findAll(contentManager: string | undefined) {
+    const filter = contentManager ? {} : {enable: {$eq: true}}
+    return items.find(filter)
 }
 
 export function addItem(id: string, item: object) {

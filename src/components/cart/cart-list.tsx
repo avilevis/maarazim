@@ -10,7 +10,9 @@ function CartList() {
     return (
         <ListGroup as="ul">
             {cartWithItems.map(item =>
-                <ListGroup.Item as="li" key={`item_in_cart${item.id}`}><CartListObj {...item}/></ListGroup.Item>
+                <ListGroup.Item as="li" key={`item_in_cart${item.id}`}>
+                    <CartListObj {...item}/>
+                </ListGroup.Item>
             )}
         </ListGroup>
     )

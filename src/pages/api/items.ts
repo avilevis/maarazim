@@ -1,6 +1,8 @@
-import type {NextApiRequest, NextApiResponse} from 'next'
+import type {NextApiRequest, NextApiResponse} from 'next';
+import nextConnect from 'next-connect';
 import {findAll} from "@/module/dao/db-access";
 import {ItemInterface} from '@/intefaces/item.inteface'
+import {onError, onNoMatch} from "@/module/error-handler";
 
 const data: ItemInterface[] = [
     {
@@ -29,16 +31,12 @@ const data: ItemInterface[] = [
     }
 ]
 
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<ItemInterface[]>
-) {
-    const requestMethod = req.method;
+const handler = nextConnect({onError, onNoMatch})
+    .get(async (req: NextApiRequest, res: NextApiResponse<ItemInterface[]>) => {
+        const {'x-content-manager': contentManager} = req.headers
+        const items = await findAll(contentManager as string)
 
-    if (requestMethod === 'GET') {
-        const items = await findAll()
         return res.status(200).json(items)
-    }
+    })
 
-    return res.status(400).json({})
-}
+export default handler;
