@@ -33,6 +33,6 @@ export function removeItem(id: string) {
         if (!doc) {
             throw new NotExist(`item with id ${id} do not exist.`)
         }
-        return items.remove({id: id});
+        return items.remove({_id: doc._id});
     })
 }

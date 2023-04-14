@@ -18,8 +18,8 @@ interface FlexTableProps {
     children?: any
     rowHeight?: string | number
     rowMaxHeight?: string | number
-    inTableEditComponent?: (item: ItemInterface) => void
-    addButton?: { name: string, inTableAddComponent: (item: ItemInterface) => JSX.Element }
+    inTableEditComponent?: (item: ItemInterface | null, onSave: any) => void
+    addButton?: { name: string, inTableAddComponent: (item?: ItemInterface) => JSX.Element }
 }
 
 function FlexTable(props: FlexTableProps) {
@@ -45,7 +45,7 @@ function FlexTable(props: FlexTableProps) {
                             width: header.width ?? 'auto',
                             maxWidth: header.maxWidth ?? 'auto'
                         }} className={styles.td}>
-                            {props.tableSlots ? props.tableSlots(header.key, item) : item[header.key]}
+                            {props.tableSlots && props.tableSlots(header.key, item) ?? item[header.key]}
                         </span>
                     ))}
                 </div>
@@ -61,16 +61,19 @@ function FlexTable(props: FlexTableProps) {
     }
 
     const addButton = () => (
-        <Button variant="primary"
-                onClick={setShowAddComp.bind(this, true)}>{props.addButton?.name}</Button>
+        <>
+            {!showAddComp && <Button variant="primary"
+                                     onClick={setShowAddComp.bind(this, true)}>{props.addButton?.name}</Button>}
+            {showAddComp && props.inTableEditComponent && props.inTableEditComponent(null, setShowAddComp.bind(this, false))}
+        </>
+
     )
 
     return (
         <div className={[styles.flex_table, props.className].join(" ")}>
             {generateHeaders()}
             {generateRows()}
-            {!!props.addButton && !showAddComp && addButton()}
-            {showAddComp && props.addButton?.inTableAddComponent()}
+            {!!props.addButton && addButton()}
         </div>
 
     )

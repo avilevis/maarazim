@@ -29,21 +29,3 @@ body {
 .btn-close {
     margin-left: 0 !important;
 }
-
-.btn-primary {
-    --bs-btn-bg: rgb(300, 135, 65) !important;
-    --bs-btn-border-color: rgb(300, 135, 65) !important;
-    --bs-btn-hover-bg: rgb(300, 105, 65) !important;
-    --bs-btn-hover-border-color: rgb(300, 105, 65) !important;
-    --bs-btn-active-bg: rgb(300, 135, 65) !important;
-    --bs-btn-active-border-color: rgb(300, 135, 65) !important;
-}
-
-.btn-outline-primary {
-    --bs-btn-color: rgb(300, 135, 65) !important;
-    --bs-btn-border-color: rgb(300, 135, 65) !important;
-    --bs-btn-hover-bg: rgb(300, 105, 65) !important;
-    --bs-btn-hover-border-color: rgb(300, 105, 65) !important;
-    --bs-btn-active-bg: rgb(300, 135, 65) !important;
-    --bs-btn-active-border-color: rgb(300, 135, 65) !important;
-}

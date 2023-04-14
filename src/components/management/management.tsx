@@ -49,7 +49,9 @@ function Management(): JSX.Element {
         dispatchItemList({type: "SET_EDIT", value: {id: id}})
     }
     const addItemHandler = (addItemObj: ItemDto): Promise<object> => {
-        return addItem(addItemObj)
+        return addItem(addItemObj).then(() => {
+            fetchListHandler()
+        })
     }
     const updateItemHandler = (updateItemObj: ItemInterface): Promise<object> => {
         const originalItem = itemList.find((item: ItemInterface) => item.id === updateItemObj.id);
@@ -69,51 +71,53 @@ function Management(): JSX.Element {
         })
     }
     const delItem = async (id: string) => {
-        await deleteItem(id)
+        await deleteItem(id).then(() => {
+            fetchListHandler()
+        })
     }
     const tableSlots = (key: string, item: ItemInterface) => {
-        if (key === 'image')
-            return (
+        const slots = {
+            'image': () => (
                 <img alt={'image'} src={item.image} className={styles.item_image}/>
-            )
+            ),
 
-        if (key === 'info')
-            return (
+            'info': () => (
                 <>
                     <h5>{item.title}</h5>
                     <small>{item.sub_title}</small>
                     <p>{item.info}</p>
                 </>
-            )
+            ),
 
-        if (key === 'actions')
-            return (
+            'actions': () => (
                 <div className={styles.actions}>
-                    <Button variant="primary" onClick={toggleEditUiItem.bind(this, item.id)}><AiTwotoneEdit
+                    <Button variant="outline-primary" onClick={toggleEditUiItem.bind(this, item.id)}><AiTwotoneEdit
                         size={24}/></Button>
-                    <Button variant="danger" onClick={delItem.bind(this, item.id)}><MdDeleteForever
+                    <Button variant="outline-primary" onClick={delItem.bind(this, item.id)}><MdDeleteForever
                         size={24}/></Button>
                 </div>
-            )
+            ),
 
-        if (key === 'enable')
-            return (
+            'enable': () => (
                 <div>
                     {item[key]
-                        ? <AiFillEye size={24} color={'var(--bs-primary)'}/>
+                        ? <AiFillEye size={24} color={'var(--bs-yellow)'}/>
                         : <AiFillEyeInvisible size={24} color={'var(--bs-gray-600)'}/>
                     }
                 </div>
             )
+        }
 
-        // @ts-ignore
-        return item[key]
+        return slots[key] ? slots[key]() : null;
     }
 
-    const inTableEditComponent = (item: ItemInterface) => {
+    const inTableEditComponent = (item?: ItemInterface, onSave) => {
         return (<ItemForm className={item ? styles.item_form : styles.new_item_form}
                           item={item}
-                          submit={item ? updateItemHandler : addItemHandler}/>)
+                          submit={item ? updateItemHandler : (item: ItemDto) => {
+                              onSave();
+                              return addItemHandler(item)
+                          }}/>)
     }
 
     return (
